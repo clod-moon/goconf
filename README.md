@@ -2,15 +2,15 @@ goini
 ========
 
 **[The official website](https://github.com/clod-moon)**
-##描述
+## 描述
 
 使用goini更简单的读取go的ini配置文件以及根据特定格式的各种配置文件。
 
-##安装方法
+## 安装方法
 
 	go get github.com/clod-moon/goconf
 
-##使用方法
+## 使用方法
 
 >ini配置文件格式样列
 
@@ -60,15 +60,15 @@ goini
 ========
 
 
-##About
+## About
 
 使用goini更简单的读取go的ini配置文件以及根据特定格式的各种配置文件。
 
-##install 
+## install 
 
 	go get github.com/clod-moon/goconf
 
-##use example
+## use example
 
 >conf.ini
 
