@@ -8,7 +8,7 @@ goini
 
 ##安装方法
 
-	gp get github.com/clod-moon/goini
+	gp get github.com/clod-moon/goconf
 
 ##使用方法
 
@@ -66,7 +66,7 @@ goini
 
 ##install 
 
-	gp get github.com/clod-moon/goini
+	gp get github.com/clod-moon/goconf
 
 ##use example
 
