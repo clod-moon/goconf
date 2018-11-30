@@ -14,7 +14,6 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"log"
 	"strings"
 )
 
