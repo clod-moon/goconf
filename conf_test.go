@@ -1,4 +1,4 @@
-package goini
+package iniconf
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 )
 
 func Test(t *testing.T) {
-	conf := SetConfig("./conf/conf.ini")
+	conf := InitConfig("./conf/conf.ini")
 	username := conf.GetValue("database", "username")
 	fmt.Println(username) //root
 	conf.DeleteValue("database", "username")
@@ -18,6 +18,6 @@ func Test(t *testing.T) {
 	username = conf.GetValue("database", "username")
 	fmt.Println(username) //widuu
 
-	data := conf.ReadList()
+	data := conf.GetAllSetion()
 	fmt.Println(data)
 }

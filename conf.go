@@ -166,7 +166,7 @@ func (c *Config) readList() map[string]map[string]string {
 
 //获取所有配置项
 //List all the configuration file
-func (c *Config) GetAllSection() map[string]map[string]string{
+func (c *Config) GetAllSetion() map[string]map[string]string{
 	return c.Conflist
 }
 
