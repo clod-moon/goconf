@@ -64,7 +64,11 @@ iniconf
 
 使用iniconf更简单的读取go的ini配置文件以及根据特定格式的各种配置文件。
 
+<<<<<<< HEAD
 ## install
+=======
+## install 
+>>>>>>> 0de79bcc56fe3d3b472cbc1ec716489d0774b025
 
 	go get github.com/clod-moon/goconf
 
