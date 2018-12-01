@@ -31,14 +31,13 @@ const (
 func InitConfig(filepath string) *Config {
 	c := new(Config)
 	c.filepath = filepath
-	c.ReadList()
+	c.readList()
 	return c
 }
 
 //To obtain corresponding value of the key values
 func (c *Config) GetValue(section, name string) string {
-	c.ReadList()
-	conf := c.ReadList()
+	c.readList()
 	for _, v := range conf {
 		for key, value := range v {
 			if key == section {
@@ -51,46 +50,22 @@ func (c *Config) GetValue(section, name string) string {
 
 //Set the corresponding value of the key value, if not add, if there is a key change
 //设置键值的对应值，如果没有添加，如果有键更改
-func (c *Config) SetValue(section, key, value string) bool {
-	c.ReadList()
-	data := c.conflist
-	var ok bool
-	var index = make(map[int]bool)
-	var conf = make(map[string]map[string]string)
-	for i, v := range data {
-		_, ok = v[section]
-		index[i] = ok
-	}
+func (c *Config) SetValue(section, key, value string){
 
-	i, ok := func(m map[int]bool) (i int, v bool) {
-		for i, v := range m {
-			if v == true {
-				return i, true
-			}
-		}
-		return 0, false
-	}(index)
-
+	_,ok := c.Conflist[section]
 	if ok {
-		c.conflist[i][section][key] = value
-		return true
-	} else {
-		conf[section] = make(map[string]string)
-		conf[section][key] = value
-		c.conflist = append(c.conflist, conf)
-		return true
+		c.Conflist[section][key] = value
+	}else{
+		c.Conflist[section] = make(map[string]string)
+		c.Conflist[section][key] = value
 	}
-
-	return false
 }
 
 //Update the configuration file at the same time
 //更新内存的时候,同时更新配置文件
 //暂未实现，等待后续
-func (c *Config) SetValueToFile(section, key, value string) bool {
-	if !c.SetValue(section,key,value){
-		return false
-	}
+func (c *Config) SetValueToFile(section, key, value string) {
+	c.SetValue(section,key,value)
 }
 
 //Delete the corresponding key values
