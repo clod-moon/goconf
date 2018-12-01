@@ -78,7 +78,7 @@ func (c *Config) DeleteValue(section, name string) bool {
 	//}
 	_,ok := c.Conflist[section][name]
 	if ok{
-		delete(c.Conflist[section][name])
+		delete(c.Conflist[section][name],name)
 		return true
 	}else{
 		return true
