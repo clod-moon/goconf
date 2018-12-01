@@ -104,7 +104,7 @@ func (c *Config) readList() map[string]map[string]string {
 		CheckErr(err)
 	}
 	defer file.Close()
-	c.conflist = make(map[string]map[string]string)
+	c.Conflist = make(map[string]map[string]string)
 	var section string
 	var sectionMap map[string]string
 	isFirstSection := true
@@ -125,7 +125,7 @@ func (c *Config) readList() map[string]map[string]string {
 		case string(line[0]) == "#":	//增加配置文件备注
 		case line[0] == '[' && line[len(line)-1] == ']':
 			if !isFirstSection{
-				c.conflist[section] = sectionMap
+				c.Conflist[section] = sectionMap
 			}else{
 				isFirstSection = false
 			}
@@ -140,8 +140,8 @@ func (c *Config) readList() map[string]map[string]string {
 			sectionMap[strings.TrimSpace(line[0:i])] = value
 		}
 	}
-	c.conflist[section] = sectionMap
-	return c.conflist
+	c.Conflist[section] = sectionMap
+	return c.Conflist
 }
 
 //获取所有配置项
@@ -160,7 +160,7 @@ func CheckErr(err error) string {
 
 //Ban repeated appended to the slice method
 func (c *Config) uniquappend(conf string) bool {
-	for _, v := range c.conflist {
+	for _, v := range c.Conflist {
 		for k, _ := range v {
 			if k == conf {
 				return false
