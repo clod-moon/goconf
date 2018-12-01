@@ -66,7 +66,6 @@ iniconf
 
 <<<<<<< HEAD
 ## install
-
 	go get github.com/clod-moon/goconf
 
 ## use example
