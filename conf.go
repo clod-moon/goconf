@@ -91,7 +91,7 @@ func (c *Config) DeleteValue(section, name string) bool {
 //删除相应的键值，同时更新配置文件
 //暂未实现，等待后续
 func (c *Config) DeleteValueToFile(section, name string) bool {
-	value := c.GetValue(section,name)
+	//value := c.GetValue(section,name)
 	c.DeleteValue(section,name)
 	return false
 }
