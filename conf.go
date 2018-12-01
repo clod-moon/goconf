@@ -37,15 +37,12 @@ func InitConfig(filepath string) *Config {
 
 //To obtain corresponding value of the key values
 func (c *Config) GetValue(section, name string) string {
-	c.readList()
-	for _, v := range conf {
-		for key, value := range v {
-			if key == section {
-				return value//[name]
-			}
-		}
+	_,ok := c.Conflist[section][name]
+	if ok{
+		return c.Conflist[section][name]
+	}else{
+		return ""
 	}
-	return ""
 }
 
 //Set the corresponding value of the key value, if not add, if there is a key change
