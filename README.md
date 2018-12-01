@@ -1,16 +1,16 @@
-goini	
+iniconf
 ========
 
 **[The official website](https://github.com/clod-moon)**
-##描述
+## 描述
 
-使用goini更简单的读取go的ini配置文件以及根据特定格式的各种配置文件。
+使用iniconf更简单的读取go的ini配置文件以及根据特定格式的各种配置文件。
 
-##安装方法
+## 安装方法
 
 	go get github.com/clod-moon/goconf
 
-##使用方法
+## 使用方法
 
 >ini配置文件格式样列
 
@@ -29,7 +29,7 @@ goini
 
 >初始化
 
-	conf := goini.SetConfig("./conf/conf.ini") //goini.SetConfig(filepath) 其中filepath是你ini 配置文件的所在位置
+	conf := goini.InitConfig("./conf/conf.ini") //iniconf.SetConfig(filepath) 其中filepath是你ini 配置文件的所在位置
 
 >获取单个配置信息
 
@@ -52,23 +52,23 @@ goini
 
 >获取所有配置信息
 
-	conf.ReadList() //返回[]map[string]map[string]string的格式 即setion=>key->value
+	conf.GetAllSetion() //返回map[string]map[string]string的格式 即setion=>key->value
 
 ---
 
-goini
+iniconf
 ========
 
 
-##About
+## About
 
-使用goini更简单的读取go的ini配置文件以及根据特定格式的各种配置文件。
+使用iniconf更简单的读取go的ini配置文件以及根据特定格式的各种配置文件。
 
-##install 
+## install
 
 	go get github.com/clod-moon/goconf
 
-##use example
+## use example
 
 >conf.ini
 
@@ -87,7 +87,7 @@ goini
 
 >initialize
 
-	conf := goini.SetConfig("./conf/conf.ini") //goini.SetConfig(filepath) filepath = directory+file
+	conf := goini.InitConfig("./conf/conf.ini") //goini.InitConfig(filepath) filepath = directory+file
 
 >To obtain a single configuration information
 
@@ -110,7 +110,7 @@ goini
 
 >Get all the configuration information
 
-	conf.ReadList() //return []map[string]map[string]string  example:setion=>key->value
+	conf.GetAllSetion() //return map[string]map[string]string  example:setion=>key->value
 
 
 
