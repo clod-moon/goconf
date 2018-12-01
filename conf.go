@@ -68,21 +68,21 @@ func (c *Config) SetValueToFile(section, key, value string) {
 //Delete the corresponding key values
 //删除相应的键值
 func (c *Config) DeleteValue(section, name string) bool {
-	//for i, v := range c.Conflist {
-	//	for key, _ := range v {
-	//		if key == // {
-	//			delete(c.Conflist[i][key], name)
-	//			return true
-	//		}
-	//	}
-	//}
-	_,ok := c.Conflist[section][name]
-	if ok{
-		delete(c.Conflist[section][name],name)
-		return true
-	}else{
-		return true
+	for i, v := range c.Conflist {
+		for key, _ := range v {
+			if key == name {
+				delete(c.Conflist[i][key], name)
+				return true
+			}
+		}
 	}
+	//_,ok := c.Conflist[section][name]
+	//if ok{
+	//	delete(c.Conflist[section][name],name)
+	//	return true
+	//}else{
+	//	return true
+	//}
 
 	return false
 }
