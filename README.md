@@ -112,8 +112,8 @@ iniconf
 
 	conf.GetAllSetion() //return map[string]map[string]string  example:setion=>key->value
 	
->example
-
+example
+=========
 ```
 func main() {
 
