@@ -111,6 +111,38 @@ iniconf
 >Get all the configuration information
 
 	conf.GetAllSetion() //return map[string]map[string]string  example:setion=>key->value
+	
+>example
 
+```
+func main() {
+
+	conf := iniconf.InitConfig("./config.ini")
+
+	for key,value :=range conf.Conflist {
+		fmt.Println(key)
+		for k,v := range value{
+			fmt.Println(k,":",v)
+		}
+	}
+	fmt.Println(conf.GetValue("esinfo","addr"))
+
+	conf.SetValue("esinfo","addr","127.100.100.100")
+
+	fmt.Println(conf.GetValue("esinfo","addr"))
+}
+```
+>output
+```
+esinfo
+addr : 127.0.0.1
+port : 9200
+index : case
+type : case
+127.0.0.1
+127.100.100.100
+
+Process finished with exit code 0
+```
 
 
