@@ -1,23 +1,43 @@
 package iniconf
 
 import (
-	"fmt"
 	"testing"
 )
 
-func Test(t *testing.T) {
-	conf := InitConfig("./conf/conf.ini")
-	username := conf.GetValue("database", "username")
-	fmt.Println(username) //root
-	conf.DeleteValue("database", "username")
-	username = conf.GetValue("database", "username")
-	if len(username) == 0 {
-		fmt.Println("username is not exists") //this stdout username is not exists
-	}
-	conf.SetValue("database", "username", "widuu")
-	username = conf.GetValue("database", "username")
-	fmt.Println(username) //widuu
+var (
+	conf *Config
+	path = "./conf/conf.ini"
+)
 
-	data := conf.GetAllSetion()
-	fmt.Println(data)
+func TestMain(m *testing.M) {
+	m.Run()
+}
+
+func TestInitConfig(t *testing.T) {
+
+	conf = InitConfig("./conf/conf.ini")
+	if conf == nil {
+		t.Error("init failed")
+	}else {
+		t.Log("init ok")
+	}
+}
+
+func TestGetValue(t *testing.T) {
+	var tests = []struct{
+		baseKey string
+		key string
+		value string
+	}{
+		{"database","username","root"},
+		{"admin","username","root"},
+		{"nihao","username","root"},
+	}
+
+	for _,test := range tests{
+		value := conf.GetValue(test.baseKey,test.key)
+		if value!= test.value{
+			t.Errorf("expect value is %s,but get value is %s\n",test.value,value)
+		}
+	}
 }
